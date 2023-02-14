@@ -1,0 +1,57 @@
+FUNCTION sum(arr1: ARRAY_OF INTEGER [5], arr2 : ARRAY_OF INTEGER[5]) : INTEGER
+VAR
+     i,j,k,r:INTEGER;
+     result : ARRAY_OF INTEGER[];
+BEGIN
+    result[0]=0;
+    r=0;
+    FOR i FROM 0 TO arr1.length-1 STEP 1  DO
+        FOR j FROM 0 TO arr2.length-1 STEP 1  DO
+            IF (arr1[i]!===arr2[j]) THEN
+                result.push(arr1[i])
+            END_IF
+        END_FOR
+    END_FOR
+    FOR k FROM 0 TO result.length-1 STEP 1  DO
+        r = r + result[k];
+    END_FOR
+    RETURN r ;
+END
+ALGORITHM sum_sets
+VAR
+    set1 , set2: ARRAY_OF INTEGER[4];
+    s:INTEGER;
+    
+BEGIN
+   s=sum(set1,set2)
+   WRITE("sum of all distinct elements: ",s )
+END
+////////////////////////////////Problem2
+FUNCTION sum(arr1: ARRAY_OF INTEGER [5], arr2 : ARRAY_OF INTEGER[5]) : INTEGER
+VAR
+     i,j,k,r:INTEGER;
+     result : ARRAY_OF INTEGER[];
+BEGIN
+    result[0]=0;
+    r=0;
+    FOR i FROM 0 TO arr1.length-1 STEP 1  DO
+        FOR j FROM 0 TO arr2.length-1 STEP 1  DO
+            IF (arr1[i]===arr2[j]) THEN
+                result.push(arr1[i])
+            END_IF
+        END_FOR
+    END_FOR
+    FOR k FROM 0 TO result.length-1 STEP 1  DO
+        r = r + result[k];
+    END_FOR
+    RETURN r ;
+END
+ALGORITHM sum_sets
+VAR
+    set1 , set2: ARRAY_OF INTEGER[4];
+    s:INTEGER;
+    
+BEGIN
+   s=sum(set1,set2)
+   WRITE("Sum of overlapping elements: ",s )
+END
